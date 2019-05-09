@@ -17,8 +17,8 @@ module.exports = {
         }
         return false;
     },
-    showAsync: (cpf) => {
-        return models.Users.findOne({where: {'cpf': cpf}})
+    showAsync: (email) => {
+        return models.Users.findOne({where: {'email': email}})
 
     },
     showAllAsync: () => {
@@ -31,10 +31,10 @@ module.exports = {
     createAsync: (data) => {
         return models.Users.create(data);
     },
-    updateAsync: (cpf, data) => {
-        delete data.cpf;
+    updateAsync: (email, data) => {
+        delete data.email;
         const user = omitEmpty(data);
-        return models.Users.update(user, {where: {cpf}})
+        return models.Users.update(user, {where: {email}})
             .then(result => {
                 const isWork = result[0];
                 return isWork;

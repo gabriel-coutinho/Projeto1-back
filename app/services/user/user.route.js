@@ -21,38 +21,22 @@ module.exports = (app, io) => {
      *           type: object
      *           required:
      *             - name
-     *             - phone
      *             - password
-     *             -  address
-     *             -  cpf
-     *             -  email
-     *             -  role
+     *             - address
+     *             - email
      *           properties:
      *             name:
      *               type: string
-     *             phone:
-     *               type: string
      *             password:
      *               type: string
-     *             cpf:
-     *               type: string
      *             email:
-     *               type: string
-     *             role:
-     *               type: string
-     *             cnpj:
      *               type: string
 
      *           example: {
      *               "name": "C. Auguste Dupin",
-     *               "phone": "(87) 3635-3232",
      *               "address": "Somewhere in Paris, France :)",
-     *               "cpf": "11122233243",
      *               "email": "augustedupin@email.com",
-     *               "password": "FirstDetective!_SorrySherlock",
-     *               "job": "",
-     *               "role": "ADMIN",
-     *               "cnpj":"14.274.411/0001-80"
+     *               "password": "FirstDetective!_SorrySherlock"
      *           }
      *     responses:
      *       201:
@@ -109,28 +93,18 @@ module.exports = (app, io) => {
      *            {
      *               "id": 1,
      *               "name": "C. Auguste Dupin",
-     *               "phone": "(87) 3635-3232",
      *               "address": "string",
-     *               "cpf": "string",
      *               "email": "string@string.string",
      *               "password": "$2a$10$2xXep.U1UtMBHjg3MMAheOej1izNFQDW1zsvOm4sww2rWUfPFVUm6",
-     *               "job": "",
-     *               "role": "ADMIN",
-     *                "cnpj":"14.274.411/0001-80",
-     *                "createdAt": "2018-09-27T15:52:50.462Z",
+     *               "createdAt": "2018-09-27T15:52:50.462Z",
      *               "updatedAt": "2018-09-27T15:52:50.462Z"
      *            },
      *            {
      *               "id": 2,
      *               "name": "a",
-     *               "phone": "(83) 99984-3625",
      *               "address": "a",
-     *               "cpf": "a",
      *               "email": "a@a.a",
      *               "password": "$2a$10$2xXep.U1UtMBHjg3MMAheOej1izNFQDW1zsvOm4sww2rWUfPFVUm6",
-     *               "job": "janitor",
-     *               "role": "STAFF",
-     *               "cnpj":"14.274.411/0001-80",
      *               "createdAt": "2018-09-27T15:52:50.462Z",
      *               "updatedAt": "2018-09-27T15:52:50.462Z"
      *            }
@@ -147,16 +121,16 @@ module.exports = (app, io) => {
 
     /**
      * @swagger
-     * /users/{cpf}:
+     * /users/{email}:
      *   get:
      *     tags:
      *       - Users
-     *     summary: Get a User by CPF
+     *     summary: Get a User by email
      *     consumes:
      *       - application/json
      *     parameters:
      *       - in: path
-     *         name: cpf
+     *         name: email
      *     responses:
      *       200:
      *         description: OK
@@ -181,9 +155,9 @@ module.exports = (app, io) => {
      *
      *             }
      */
-    app.get('/:cpf'  ,async (req, res) => {
-        const cpf = req.params.cpf;
-        const User = await userService.showAsync(cpf);
+    app.get('/:email'  ,async (req, res) => {
+        const email = req.params.email;
+        const User = await userService.showAsync(email);
         if (!User) {
             return res.status(HttpStatusCodes.NOT_FOUND).send();
         }
@@ -251,12 +225,8 @@ module.exports = (app, io) => {
         if (!User) {
             return res.status(HttpStatusCodes.NOT_FOUND).send();
         }
-        // const token = jsonWebToken.generateToken(User.id);
-        // res.set('authorization', token);
-        // delete User.dataValues.password;
-        // res.status(HttpStatusCodes.OK).json(User);
         const token = jsonWebToken.generateToken(User.id);
-        User.dataValues.token = token;
+        res.set('authorization', token);
         delete User.dataValues.password;
         res.status(HttpStatusCodes.OK).json(User);
     });

@@ -2,9 +2,9 @@ require('dotenv').config();
 
 module.exports = {
     'development': {
-        'username': '',// caso tenha configurado o bd com um username add aqui
-        'password': '',//caso tenha configurado o bd com uma senha add aqui
-        'database': 'postgres',//add aqui com o nome do seu db
+        'username': 'postgres',// caso tenha configurado o bd com um username add aqui
+        'password': 'backp1',//caso tenha configurado o bd com uma senha add aqui
+        'database': 'DB',//add aqui com o nome do seu db
         'host': '127.0.0.1',
         'dialect': 'postgres'
 

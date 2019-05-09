@@ -1,15 +1,14 @@
 {
-  "name": "back_p1",
+  "name": "Projeto1-back",
   "version": "1.0.0",
   "description": "$npm i",
   "main": "index.js",
   "scripts": {
     "start": "sequelize db:migrate && node ./node_modules/nodemon/bin/nodemon.js  ./app.js"
-
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ana29/back_p1.git"
+    "url": "git+https://github.com/gabrielUFCG/Projeto1-back"
   },
   "keywords": [],
   "engines": {
@@ -18,9 +17,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ana29/back_p1/issues"
+    "url": "https://github.com/gabrielUFCG/Projeto1-back/issues"
   },
-  "homepage": "https://github.com/ana29/back_p1#readme",
+  "homepage": "https://github.com/gabrielUFCG/Projeto1-back#readme",
   "dependencies": {
     "async": "^2.6.0",
     "bcrypt": "^3.0.2",

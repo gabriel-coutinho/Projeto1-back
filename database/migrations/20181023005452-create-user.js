@@ -12,39 +12,17 @@ module.exports = {
                 allowNull: false,
                 type: DataTypes.STRING
             },
-            phone: {
-                allowNull: false,
-                type: DataTypes.STRING
-            },
             address: {
                 allowNull: false,
-                type: DataTypes.STRING
-            },
-            cpf: {
-                allowNull: false,
-                unique: true,
                 type: DataTypes.STRING
             },
             email: {
                 allowNull: false,
                 type: DataTypes.STRING,
+                unique: true,
                 lowercase: true
             },
             password: {
-                allowNull: false,
-                type: DataTypes.STRING,
-            },
-            job: {
-                allowNull: true,
-                type: DataTypes.STRING
-            },
-            role: {
-                allowNull: false,
-                type: DataTypes.ENUM,
-                values: ['ADMIN', 'RESIDENT', 'STAFF'],
-                defaultValue: 'RESIDENT'
-            },
-            cnpj: {
                 allowNull: false,
                 type: DataTypes.STRING,
             },
