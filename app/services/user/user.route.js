@@ -22,7 +22,6 @@ module.exports = (app, io) => {
      *           required:
      *             - name
      *             - password
-     *             - address
      *             - email
      *           properties:
      *             name:
@@ -34,7 +33,6 @@ module.exports = (app, io) => {
 
      *           example: {
      *               "name": "C. Auguste Dupin",
-     *               "address": "Somewhere in Paris, France :)",
      *               "email": "augustedupin@email.com",
      *               "password": "FirstDetective!_SorrySherlock"
      *           }
@@ -93,7 +91,6 @@ module.exports = (app, io) => {
      *            {
      *               "id": 1,
      *               "name": "C. Auguste Dupin",
-     *               "address": "string",
      *               "email": "string@string.string",
      *               "password": "$2a$10$2xXep.U1UtMBHjg3MMAheOej1izNFQDW1zsvOm4sww2rWUfPFVUm6",
      *               "createdAt": "2018-09-27T15:52:50.462Z",
@@ -102,7 +99,6 @@ module.exports = (app, io) => {
      *            {
      *               "id": 2,
      *               "name": "a",
-     *               "address": "a",
      *               "email": "a@a.a",
      *               "password": "$2a$10$2xXep.U1UtMBHjg3MMAheOej1izNFQDW1zsvOm4sww2rWUfPFVUm6",
      *               "createdAt": "2018-09-27T15:52:50.462Z",

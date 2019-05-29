@@ -8,6 +8,10 @@ module.exports = {
                 primaryKey: true,
                 type: DataTypes.INTEGER
             },
+            name: {
+                allowNull: false,
+                type: DataTypes.String
+            },
             createdAt: {
                 allowNull: false,
                 type: DataTypes.DATE

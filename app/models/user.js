@@ -4,7 +4,6 @@ const validator = require('validator');
 module.exports = (sequelize, DataTypes) => {
     const Users = sequelize.define('Users', {
         name: DataTypes.STRING,
-        address: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING
        
@@ -33,16 +32,6 @@ module.exports = (sequelize, DataTypes) => {
             throw new Error('Validation Error: invalid email');
         }
     });
-   
-    // Users.associate = (models) => {
-    //     Users.belongsTo(models.Condominiums, {
-    //         foreignKey: {
-    //             name: 'cnpj',
-    //             as: 'condominiumCnpj'
-    //         },
-    //         onDelete: 'set null'
-    //     });
-    // };
     return Users;
 };
 
